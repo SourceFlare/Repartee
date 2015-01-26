@@ -79,14 +79,23 @@ We can see three simple examples of these below :-
     $sms->Message = 'Hello world!';
     $resp = $sms->Send();
 
-## Response to XML
+## Get Inboxes
 
-When you recieve the response back from Repartee it will contain a mix of objects and arrays. ResponseToXML class (situated in core) will convert the response to XML.
+With TextLocal you can have inboxes.  The 'getInboxes' function will return a list of your inboxes, and the statistics for them (such as No. of Messages and No. of Contacts).  Using this return data you can then query a specific inbox using the 'getMessages' function.
 
-    # Response to XML Example
-    use Repartee\core\ResponseToXML;
+    # Repartee -- Constructor Example
+    use Repartee\Repartee;
 
-    $xml = ResponseToXML::convert ($response);
+    $resp = Repartee::getInboxes()->send();
+
+## Get Inbox Messages
+
+Use the getMessages function with an inbox_id to retrieve the messages within it.
+
+    # Repartee -- Constructor Example
+    use Repartee\Repartee;
+
+    $resp = Repartee::getMessages()->send();
 
 ## More Information & News
 

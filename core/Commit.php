@@ -7,7 +7,7 @@ use Repartee\core\cURL\ReparteeCURL;
 
 class Commit
 {
-    final public function send ($endpoint, $data)
+    final public function send ($endpoint, $data=[])
     {
         # Set Login Details
         $data['username'] = ReparteeConfig::getSetting('username');
