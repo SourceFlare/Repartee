@@ -21,6 +21,9 @@ In the main configuration file you can set the API credentials, sender's name, b
 	# API Base URL
 	protected static $base_url = 'https://api.txtlocal.com/';
 
+    # Response Data Format
+    protected static $response_format = 'xml';  # xml or json
+
 	# API End-Points
 	protected static $send_sms = 'send/';
 	protected static $inboxes = 'get_inboxes/';
