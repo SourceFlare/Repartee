@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Repartee by markgreenall</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Repartee</h1>
+        <h2>Repartee is a plugin for PHP apps to interact with and utilise the TextLocal.com API to send and receive SMS/MMS messages.</h2>
+        <a href="https://github.com/markgreenall/Repartee" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="repartee" class="anchor" href="#repartee" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repartee</h1>
+
+<p>Repartee is a plugin for PHP apps to interact with and utilise the TextLocal.com API to send and receive SMS/MMS messages.</p>
+
+<h1>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h1>
+
+<h3>
+<a id="reparteeconfigreparteeconfigphp" class="anchor" href="#reparteeconfigreparteeconfigphp" aria-hidden="true"><span class="octicon octicon-link"></span></a>(Repartee/config/ReparteeConfig.php)</h3>
+
+<p>In the main configuration file you can set the API credentials, sender's name, base url, and TextLocal API endpoints.</p>
+
+<pre><code># Test Mode
+protected static $test_mode = '1';
+
+# Credentials
+protected static $username = 'test@example.com';
+protected static $password = 'letmein';
+protected static $hash = '98vx79s887dsf9f7sdfsdfsd98f7xzcx';
+
+# Sender Name / Number
+protected static $sender = 'Repartee';
+
+# API Base URL
+protected static $base_url = 'https://api.txtlocal.com/';
+
+# Response Data Format
+protected static $response_format = 'xml';  # xml or json
+
+# API End-Points
+protected static $send_sms = 'send/';
+protected static $inboxes = 'get_inboxes/';
+protected static $messages = 'get_messages/';
+protected static $scheduled = 'get_scheduled/';
+protected static $cancel_scheduled = 'cancel_scheduled/';
+protected static $contacts = 'get_contacts/';
+protected static $create_contact = 'create_contacts/';
+protected static $delete_contact = 'delete_contact/';
+protected static $groups = 'get_groups/';
+protected static $create_group = 'create_group/';
+protected static $delete_group = 'delete_group/';
+protected static $get_single_history = 'get_history_single/';
+protected static $get_group_history = 'get_history_group/';
+protected static $get_api_history = 'get_history_api/';
+protected static $message_status = 'status_message/';
+protected static $batch_status = 'status_batch/';
+</code></pre>
+
+<h2>
+<a id="sending-an-sms-message" class="anchor" href="#sending-an-sms-message" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sending an SMS Message</h2>
+
+<p>Repartee supports three ways to operate the send message class suite :-</p>
+
+<ol>
+<li>Constructor</li>
+<li>Chaining</li>
+<li>Attribute</li>
+</ol>
+
+<p>We can see three simple examples of these below :-</p>
+
+<h3>
+<a id="constructor" class="anchor" href="#constructor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructor</h3>
+
+<pre><code># Send SMS -- Constructor Example
+use Repartee\Repartee;
+
+$resp = Repartee::NewMessage ([
+    'Recipients' =&gt; ['00000000000', '11111111111'],
+    'Message' =&gt; 'Hello world!'
+])-&gt;Send();
+</code></pre>
+
+<h3>
+<a id="chaining" class="anchor" href="#chaining" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chaining</h3>
+
+<pre><code># Send SMS -- Chaining Example
+use Repartee\Repartee;
+
+$resp = Repartee::NewMessage()
+-&gt;setRecipients (['00000000000', '11111111111'])
+-&gt;setMessage ('Hello world!')
+-&gt;Send();
+</code></pre>
+
+<h3>
+<a id="attribute" class="anchor" href="#attribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attribute</h3>
+
+<pre><code># Send SMS -- Attribute Example
+use Repartee\Repartee;
+
+$sms = Repartee::NewMessage();
+$sms-&gt;Recipients = ['00000000000', '11111111111'];
+$sms-&gt;Message = 'Hello world!';
+$resp = $sms-&gt;Send();
+</code></pre>
+
+<h2>
+<a id="get-inboxes" class="anchor" href="#get-inboxes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Inboxes</h2>
+
+<p>With TextLocal you can have inboxes.  The 'getInboxes' function will return a list of your inboxes, and the statistics for them (such as No. of Messages and No. of Contacts).  Using this return data you can then query a specific inbox using the 'getMessages' function.</p>
+
+<pre><code># Repartee -- Constructor Example
+use Repartee\Repartee;
+
+$resp = Repartee::getInboxes()-&gt;send();
+</code></pre>
+
+<h2>
+<a id="get-inbox-messages" class="anchor" href="#get-inbox-messages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Inbox Messages</h2>
+
+<p>Use the getMessages function with an inbox_id to retrieve the messages within it.</p>
+
+<pre><code># Repartee -- Constructor Example
+use Repartee\Repartee;
+
+$resp = Repartee::getMessages()-&gt;send();
+</code></pre>
+
+<h2>
+<a id="more-information--news" class="anchor" href="#more-information--news" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Information &amp; News</h2>
+
+<p>For more information and news regarding this plugin please contact me via my technology blog.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/markgreenall/Repartee/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/markgreenall/Repartee/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/markgreenall/Repartee"></a> is maintained by <a href="https://github.com/markgreenall">markgreenall</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
