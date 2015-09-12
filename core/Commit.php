@@ -7,11 +7,12 @@ use Repartee\core\cURL\ReparteeCURL;
 
 class Commit
 {
-    final public function send ($endpoint, $data=[])
+    final public function send ($endpoint, $data=array())
     {
         # Set Login Details
         $data['username'] = ReparteeConfig::getSetting('username');
         $data['hash'] = ReparteeConfig::getSetting('hash');
+        $data['apikey'] = ReparteeConfig::getSetting('apikey');
 
         # Set Sender's Name
         $data['sender'] = ReparteeConfig::getSetting('sender');
@@ -23,7 +24,8 @@ class Commit
         $data['format'] = ReparteeConfig::getSetting('response_format');
 
         # Send Data to API over cURL
-        $response = (new ReparteeCURL)->open ($endpoint, $data);
+        $MyConn = new ReparteeCURL;
+        $response = $MyConn->open ($endpoint, $data);
 
         # Return Response Data
         return $response;
