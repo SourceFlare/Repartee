@@ -14,7 +14,7 @@ In the main configuration file you can set the API credentials, sender's name, b
 	protected static $username = 'test@example.com';
 	protected static $password = 'letmein';
 	protected static $hash     = '987fs9d8f7sd9f7sd9f7sd9f8sd98fsd98f7sdf9sf';  # Deprecated in favour of API Keys
-        protected static $apikey   = '67sd65f8s6df86sdf76ds8f68s7d6f8sd7f68sd7';    # Favoured over Hash Keys
+	protected static $apikey   = '67sd65f8s6df86sdf76ds8f68s7d6f8sd7f68sd7';    # Favoured over Hash Keys
         
 	# Sender Name / Number
 	protected static $sender   = 'Repartee';
@@ -22,8 +22,8 @@ In the main configuration file you can set the API credentials, sender's name, b
 	# API Base URL
 	protected static $base_url = 'https://api.txtlocal.com/';
 	
-    	# Response Data Format
-    	protected static $response_format = 'xml';  # xml or json
+	# Response Data Format
+	protected static $response_format = 'xml';  # xml or json
 	
 	# API End-Points
 	protected static $send_sms = 'send/';
