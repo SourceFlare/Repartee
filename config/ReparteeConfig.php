@@ -7,8 +7,9 @@ class ReparteeConfig
 
     # Credentials
     protected static $username = 'email_in_here';
-    protected static $password = 'password_in_here';
-    protected static $hash = 'hash_in_here';
+    protected static $password = 'password_in_here';   # Now deprecated
+    protected static $hash = 'hash_in_here';           # Now deprecated in favour of API Keys
+    protected static $apikey = 'apikey_in_here';       # API Keys are now the Auth standard
 
     # Sender Name / Number
     protected static $sender = 'Repartee';
