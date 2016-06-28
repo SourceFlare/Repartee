@@ -1,5 +1,7 @@
 # Repartee
 
+[![Code Climate](https://codeclimate.com/github/SourceFlare/Repartee/badges/gpa.svg)](https://codeclimate.com/github/SourceFlare/Repartee) [![Test Coverage](https://codeclimate.com/github/SourceFlare/Repartee/badges/coverage.svg)](https://codeclimate.com/github/SourceFlare/Repartee/coverage) [![Issue Count](https://codeclimate.com/github/SourceFlare/Repartee/badges/issue_count.svg)](https://codeclimate.com/github/SourceFlare/Repartee)
+
 Repartee is a plugin for PHP apps to interact with and utilise the TextLocal.com API to send and receive SMS/MMS messages.
 
 # Configuration
