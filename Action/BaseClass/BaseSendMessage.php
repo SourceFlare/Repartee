@@ -4,30 +4,30 @@ namespace Repartee\Action\BaseClass;
 class BaseSendMessage
 {
     # Set values through constructor
-    public function __construct($d=[])
+    public function __construct($data=[])
     {
-        @$this->Recipients = $d['Recipients'];
-        @$this->Message = $d['Message'];
+        @$this->Recipients = $data['Recipients'];
+        @$this->Message = $data['Message'];
     }
 
     # Set values through dynamic call
-    public function __call($a, $b='')
+    public function __call($action, $params='')
     {
-        $this->$a = $b;
+        $this->$action = $params;
         return $this;
     }
 
     # Set Recipients through Chaining
-    final public function setRecipients ($r)
+    final public function setRecipients ($recipients)
     {
-        $this->Recipients = $r;
+        $this->Recipients = $recipients;
         return $this;
     }
 
     # Set Message through Chaining
-    final public function setMessage ($m)
+    final public function setMessage ($message)
     {
-        $this->Message = $m;
+        $this->Message = $message;
         return $this;
     }
 
