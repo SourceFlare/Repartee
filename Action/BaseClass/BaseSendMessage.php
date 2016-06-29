@@ -6,8 +6,8 @@ class BaseSendMessage
     # Set values through constructor
     public function __construct($data=[])
     {
-        @$this->Recipients = $data['Recipients'];
-        @$this->Message = $data['Message'];
+        $this->Recipients = $data['Recipients'];
+        $this->Message = $data['Message'];
     }
 
     # Set values through dynamic call
