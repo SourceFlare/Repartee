@@ -10,8 +10,8 @@ class GetMessages extends BaseGetMessages
     public $inboxId = '';
 
     /**
-     * Send a new SMS Message
-     * @return object Commit
+     * Get all Messages within a given inbox
+     * @return array
      */
     final public function send ()
     {
