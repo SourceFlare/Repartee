@@ -2,9 +2,9 @@
 
 # Repartee Imports
 use Repartee\core\Interfaces\ReparteeFunctions;
-use Repartee\Action\newMessage;
-use Repartee\Action\getInboxes;
-use Repartee\Action\getMessages;
+use Repartee\Action\NewMessage;
+use Repartee\Action\GetInboxes;
+use Repartee\Action\GetMessages;
 
 class Repartee implements ReparteeFunctions
 {
