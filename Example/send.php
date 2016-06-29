@@ -11,7 +11,7 @@ $recipients = $_POST['to'];
 $message = $_POST['message'];
 
 # Repartee -- Constructor Example
-$response = Repartee::NewMessage ([
+$response = Repartee::newMessage ([
     'Recipients' => [$recipients],
     'Message' => $message
 ])->Send();
