@@ -9,7 +9,10 @@ class GetMessages extends BaseGetMessages
 {
     public $inboxId = '';
 
-    # Send a Message
+    /**
+     * Send a new SMS Message
+     * @return object Commit
+     */
     final public function send ()
     {
         # Commit Message to cURL
