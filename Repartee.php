@@ -16,6 +16,7 @@ class Repartee implements ReparteeFunctions
     {
         return new NewMessage($data);
     }
+    
     /**
      * Get all inboxes for user
      * @return array
