@@ -12,19 +12,19 @@ class ReparteeCURL
         $url = (string) ReparteeConfig::getSetting('base_url') . $endpoint;
 
         # Perform cURL Operation to API Endpoint
-        $ch = curl_init($url);
+        $http = curl_init($url);
 
         # Set Options
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($http, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($http, CURLOPT_POST, true);
+        curl_setopt($http, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($http, CURLOPT_RETURNTRANSFER, true);
 
         # Execute Navigation
-        $response = curl_exec($ch);
+        $response = curl_exec($http);
 
         # Close Connection
-        curl_close($ch);
+        curl_close($http);
 
         # Decode JSON to Array then return
         return $response;
