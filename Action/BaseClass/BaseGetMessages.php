@@ -4,22 +4,22 @@ namespace Repartee\Action\BaseClass;
 class BaseGetMessages
 {
     # Set values through constructor
-    public function __construct($inbox_id='')
+    public function __construct($inboxId='')
     {
-        $this->Inbox_ID = $inbox_id;
+        $this->inboxId = $inboxId;
     }
 
     # Set values through dynamic call
-    public function __call($a, $b='')
+    public function __call($action, $params='')
     {
-        $this->$a = $b;
+        $this->$action = $params;
         return $this;
     }
 
     # Set Recipients through Chaining
-    final public function setRecipients ($inbox_id='')
+    final public function setRecipients ($inboxId='')
     {
-        $this->Inbox_ID = $inbox_id;
+        $this->inboxId = $inboxId;
         return $this;
     }
 }
