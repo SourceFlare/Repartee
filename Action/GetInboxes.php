@@ -1,5 +1,4 @@
-<?php
-namespace Repartee\Action;
+<?php namespace Repartee\Action;
 
 use Repartee\Action\BaseClass\BaseGetInboxes;
 use Repartee\config\ReparteeConfig;
