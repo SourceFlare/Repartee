@@ -1,5 +1,4 @@
-<?php
-namespace Repartee;
+<?php namespace Repartee;
 
 # Repartee Imports
 use Repartee\core\Interfaces\ReparteeFunctions;
@@ -9,33 +8,18 @@ use Repartee\Action\getMessages;
 
 class Repartee implements ReparteeFunctions
 {
-    # Inboxes & Messaging
-    final public static function newMessage ($d='')
+    final public static function newMessage ($data='')
     {
-        return new newMessage($d);
+        return new NewMessage($data);
     }
 
-    public static function getInboxes ($d='')
+    public static function getInboxes ($data='')
     {
-        return new getInboxes($d);
+        return new GetInboxes($data);
     }
 
-    public static function getMessages ($d='')
+    public static function getMessages ($data='')
     {
-        return new getMessages($d);
+        return new GetMessages($data);
     }
-
-    public static function readMessage () {}
-
-    # Contacts
-
-    public static function newContact () {}
-    public static function editContact () {}
-    public static function deleteContact () {}
-
-    # Groups
-
-    public static function newGroup () {}
-    public static function editGroup () {}
-    public static function deleteGroup () {}
 }
