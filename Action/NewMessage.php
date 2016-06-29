@@ -10,7 +10,10 @@ class NewMessage extends BaseSendMessage
     public $Recipients = [];
     public $Message = "";
 
-    # Send a Message
+    /**
+     * Send a new SMS Message
+     * @return array
+     */
     final public function send ()
     {
         # Commit Message to cURL
