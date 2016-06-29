@@ -4,9 +4,13 @@ use Repartee\Action\BaseClass\BaseGetInboxes;
 use Repartee\config\ReparteeConfig;
 use Repartee\core\Commit;
 
+
 class GetInboxes extends BaseGetInboxes
 {
-    # Send a Message
+    /**
+     * Gets a list of all inboxes with IDs
+     * @return array
+     */
     final public function send ()
     {
         # Commit Message to cURL
