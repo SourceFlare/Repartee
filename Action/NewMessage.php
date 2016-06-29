@@ -1,9 +1,9 @@
-<?php
-namespace Repartee\Action;
+<?php namespace Repartee\Action;
 
 use Repartee\Action\BaseClass\BaseSendMessage;
 use Repartee\config\ReparteeConfig;
 use Repartee\core\Commit;
+
 
 class NewMessage extends BaseSendMessage
 {
