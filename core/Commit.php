@@ -7,25 +7,25 @@ use Repartee\core\cURL\ReparteeCURL;
 
 class Commit
 {
-    final public function send ($endpoint, $data=array())
+    final public function send ($endpoint, $data=[]])
     {
         # Set Login Details
         $data['username'] = ReparteeConfig::getSetting('username');
-        $data['hash'] = ReparteeConfig::getSetting('hash');
-        $data['apikey'] = ReparteeConfig::getSetting('apikey');
+        $data['hash']     = ReparteeConfig::getSetting('hash');
+        $data['apikey']   = ReparteeConfig::getSetting('apikey');
 
         # Set Sender's Name
-        $data['sender'] = ReparteeConfig::getSetting('sender');
+        $data['sender']   = ReparteeConfig::getSetting('sender');
 
         # Set Test Mode Flag to Config Setting (Default=0)
-        $data['test'] = ReparteeConfig::getSetting('test_mode');
+        $data['test']     = ReparteeConfig::getSetting('test_mode');
 
         # Format
-        $data['format'] = ReparteeConfig::getSetting('response_format');
+        $data['format']   = ReparteeConfig::getSetting('response_format');
 
         # Send Data to API over cURL
-        $MyConn = new ReparteeCURL;
-        $response = $MyConn->open ($endpoint, $data);
+        $myConn = new ReparteeCURL;
+        $response = $myConn->open ($endpoint, $data);
 
         # Return Response Data
         return $response;
