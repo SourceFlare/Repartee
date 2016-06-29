@@ -7,7 +7,7 @@ use Repartee\core\Commit;
 
 class getMessages extends BaseGetMessages
 {
-    public $Inbox_ID = '';
+    public $inboxId = '';
 
     # Send a Message
     final public function send ()
@@ -16,7 +16,7 @@ class getMessages extends BaseGetMessages
         return (new Commit)->send(
             ReparteeConfig::getSetting('messages'),     # Endpoint path
             [
-                'inbox_id' => $this->Inbox_ID                # Format Numbers into Comma-Delimited
+                'inbox_id' => $this->inboxId                # Format Numbers into Comma-Delimited
             ]
         );
     }
