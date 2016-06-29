@@ -5,7 +5,7 @@ use Repartee\Action\BaseClass\BaseSendMessage;
 use Repartee\config\ReparteeConfig;
 use Repartee\core\Commit;
 
-class newMessage extends BaseSendMessage
+class NewMessage extends BaseSendMessage
 {
     public $Recipients = [];
     public $Message = "";
