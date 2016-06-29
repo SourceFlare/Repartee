@@ -7,9 +7,9 @@ class BaseGetInboxes
     public function __construct() {}
 
     # Set values through dynamic call
-    public function __call($a, $b='')
+    public function __call($action, $params='')
     {
-        $this->$a = $b;
+        $this->$action = $params;
         return $this;
     }
 }
