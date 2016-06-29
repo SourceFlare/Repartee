@@ -1,5 +1,4 @@
-<?php
-namespace Repartee\Action;
+<?php namespace Repartee\Action;
 
 use Repartee\Action\BaseClass\BaseGetMessages;
 use Repartee\config\ReparteeConfig;
