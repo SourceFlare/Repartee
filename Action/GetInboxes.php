@@ -5,7 +5,7 @@ use Repartee\Action\BaseClass\BaseGetInboxes;
 use Repartee\config\ReparteeConfig;
 use Repartee\core\Commit;
 
-class getInboxes extends BaseGetInboxes
+class GetInboxes extends BaseGetInboxes
 {
     # Send a Message
     final public function send ()
