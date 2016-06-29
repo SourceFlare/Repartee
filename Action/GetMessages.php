@@ -5,7 +5,7 @@ use Repartee\Action\BaseClass\BaseGetMessages;
 use Repartee\config\ReparteeConfig;
 use Repartee\core\Commit;
 
-class getMessages extends BaseGetMessages
+class GetMessages extends BaseGetMessages
 {
     public $inboxId = '';
 
